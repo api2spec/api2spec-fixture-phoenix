@@ -3,3 +3,6 @@
 *.ez
 *.beam
 .elixir_ls/
+
+# Claude Code
+.claude/

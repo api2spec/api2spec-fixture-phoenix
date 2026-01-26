@@ -89,6 +89,8 @@ The application exposes the following endpoints:
 - `GET /posts` - List all posts
 - `GET /posts/:id` - Get a specific post
 - `POST /posts` - Create a new post
+- `PUT /posts/:id` - Update a post
+- `DELETE /posts/:id` - Delete a post
 
 ## Testing the API
 

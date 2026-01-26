@@ -23,6 +23,17 @@ services:
     stdin_open: true
     tty: true
 
+  test:
+    image: elixir:1.15-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+      - deps:/app/deps
+      - build:/app/_build
+    environment:
+      - MIX_ENV=test
+    command: sh -c "mix local.hex --force && mix local.rebar --force && mix deps.get && mix test"
+
 volumes:
   deps:
   build:
