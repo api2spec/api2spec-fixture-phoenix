@@ -1,0 +1,279 @@
+openapi: 3.0.3
+info:
+  title: API
+  version: 1.0.0
+paths:
+  /health:
+    get:
+      tags:
+        - health
+      operationId: getIndex
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /health/ready:
+    get:
+      tags:
+        - health
+      operationId: getReady
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /posts:
+    get:
+      tags:
+        - posts
+      operationId: getIndex
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+    post:
+      tags:
+        - posts
+      operationId: postCreate
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /posts/{id}:
+    get:
+      tags:
+        - posts
+      operationId: getShow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+    put:
+      tags:
+        - posts
+      operationId: putUpdate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+        - posts
+      operationId: deleteDelete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /users:
+    get:
+      tags:
+        - users
+      operationId: getIndex
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+    post:
+      tags:
+        - users
+      operationId: postCreate
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /users/{id}:
+    get:
+      tags:
+        - users
+      operationId: getShow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+    put:
+      tags:
+        - users
+      operationId: putUpdate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+        - users
+      operationId: deleteDelete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+    patch:
+      tags:
+        - users
+      operationId: patchUpdate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /users/{id}/edit:
+    get:
+      tags:
+        - users
+      operationId: getEdit
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+  /users/new:
+    get:
+      tags:
+        - users
+      operationId: getNew
+      responses:
+        "200":
+          description: Successful response
+        "400":
+          description: Bad request
+        "500":
+          description: Internal server error
+components:
+  schemas:
+    Error:
+      type: object
+      title: Error
+      properties:
+        code:
+          type: string
+        details:
+          type: object
+        message:
+          type: string
+      required:
+        - code
+        - message
+        - details
+    Post:
+      type: object
+      title: Post
+      properties:
+        body:
+          type: string
+        published:
+          type: boolean
+          default: false
+        title:
+          type: string
+        user_id:
+          type: integer
+        view_count:
+          type: integer
+          default: 0
+      required:
+        - title
+        - body
+        - user_id
+    User:
+      type: object
+      title: User
+      properties:
+        active:
+          type: boolean
+          default: true
+        age:
+          type: integer
+        email:
+          type: string
+        name:
+          type: string
+      required:
+        - name
+        - email
+        - age

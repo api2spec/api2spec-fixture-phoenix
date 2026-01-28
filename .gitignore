@@ -1,8 +1,36 @@
+# Elixir/Phoenix build artifacts
 /_build/
 /deps/
-*.ez
+/*.ez
 *.beam
+
+# Generated documentation
+/doc/
+
+# Test coverage
+/cover/
+
+# Static assets (generated)
+/priv/static/assets/
+
+# Mix artifacts
+.fetch
+erl_crash.dump
+
+# Secret configuration
+/config/*.secret.exs
+
+# Editor/IDE
 .elixir_ls/
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+
+# Environment
+.env
+*.log
 
 # Claude Code
 .claude/
